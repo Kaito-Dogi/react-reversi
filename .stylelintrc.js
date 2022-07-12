@@ -6,4 +6,3 @@ module.exports = {
     'string-quotes': 'single',
   },
 };
-Footer;
