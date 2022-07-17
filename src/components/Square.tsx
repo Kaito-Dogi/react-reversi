@@ -1,29 +1,32 @@
+import { Status } from '../types/Status';
+
 type Props = {
   status: Status;
   onClick: () => void;
 };
 
-type Status = 'WHITE' | 'BLACK' | 'NONE';
+const SQUARE_STATUS = {
+  WHITE: {
+    className: 'white-square',
+    text: '🤍',
+  },
+  BLACK: {
+    className: 'black-square',
+    text: '🖤',
+  },
+  NONE: {
+    className: 'default-square',
+    text: '💚',
+  },
+} as const;
 
 const Square = (props: Props) => {
   const { status, onClick } = props;
-
-  let className: string;
-  let statusText: string;
-  if (status === 'WHITE') {
-    className = 'white-square';
-    statusText = '🤍';
-  } else if (status === 'BLACK') {
-    className = 'black-square';
-    statusText = '🖤';
-  } else {
-    className = 'default-square';
-    statusText = '💚';
-  }
+  const { className, text } = SQUARE_STATUS[status];
 
   return (
     <button className={className} onClick={onClick} type="button">
-      {statusText}
+      {text}
     </button>
   );
 };
