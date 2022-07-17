@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import { Status } from '../types/Status';
 import Square from './Square';
 
@@ -12,9 +13,9 @@ const Board = (props: Props) => {
   return (
     <div>
       {statusesList.map((statuses, x) => (
-        <div>
+        <div key={x}>
           {statuses.map((status, y) => (
-            <Square status={status} onClick={() => onClick(x, y)} />
+            <Square key={y} status={status} onClick={() => onClick(x, y)} />
           ))}
         </div>
       ))}
