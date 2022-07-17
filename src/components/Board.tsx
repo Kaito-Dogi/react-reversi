@@ -9,13 +9,17 @@ type Props = {
 const Board = (props: Props) => {
   const { statusesList, onClick } = props;
 
-  return statusesList.map((statuses, x) => (
+  return (
     <div>
-      {statuses.map((status, y) => (
-        <Square status={status} onClick={() => onClick(x, y)} />
+      {statusesList.map((statuses, x) => (
+        <div>
+          {statuses.map((status, y) => (
+            <Square status={status} onClick={() => onClick(x, y)} />
+          ))}
+        </div>
       ))}
     </div>
-  ));
+  );
 };
 
 export default Board;
