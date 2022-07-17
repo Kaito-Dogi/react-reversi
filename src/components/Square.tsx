@@ -20,7 +20,7 @@ const SQUARE_STATUS = {
   },
 } as const;
 
-const Square = (props: Props) => {
+export const Square = (props: Props) => {
   const { status, onClick } = props;
   const { className, text } = SQUARE_STATUS[status];
 
@@ -30,5 +30,3 @@ const Square = (props: Props) => {
     </button>
   );
 };
-
-export default Square;

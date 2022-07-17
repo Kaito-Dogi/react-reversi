@@ -113,6 +113,12 @@ module.exports = {
         'react/prop-types': 'off',
       },
     },
+    {
+      files: ['./src/lib/*.ts', './src/components/*.tsx'],
+      rules: {
+        'import/prefer-default-export': 'off',
+      },
+    },
   ],
   settings: {
     'import/resolver': {

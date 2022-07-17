@@ -1,13 +1,13 @@
 /* eslint-disable react/no-array-index-key */
 import { Status } from '../types/Status';
-import Square from './Square';
+import { Square } from './Square';
 
 type Props = {
   statusesList: Status[][];
   onClick: (x: number, y: number) => void;
 };
 
-const Board = (props: Props) => {
+export const Board = (props: Props) => {
   const { statusesList, onClick } = props;
 
   return (
@@ -22,5 +22,3 @@ const Board = (props: Props) => {
     </div>
   );
 };
-
-export default Board;
