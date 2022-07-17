@@ -1,17 +1,19 @@
 type Props = {
-  status: number;
+  status: Status;
   onClick: () => void;
 };
+
+type Status = 'WHITE' | 'BLACK' | 'NONE';
 
 const Square = (props: Props) => {
   const { status, onClick } = props;
 
   let className: string;
   let statusText: string;
-  if (status === 2) {
+  if (status === 'WHITE') {
     className = 'white-square';
     statusText = '🤍';
-  } else if (status === 1) {
+  } else if (status === 'BLACK') {
     className = 'black-square';
     statusText = '🖤';
   } else {
