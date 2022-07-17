@@ -1,17 +1,22 @@
+import { useState } from 'react';
 import './App.css';
-import Square from './components/Square';
+import { Board } from './components/Board';
+import { generateInitialStatusesList } from './lib/generateInitialStatusesList';
+import { Status } from './types/Status';
+
+const handleClick = (x: number, y: number) => {
+  console.log(x, y);
+};
 
 const App = () => {
-  const onClick = () => {
-    console.log('あああ');
-  };
+  const [statusesList, _] = useState<Status[][]>(
+    generateInitialStatusesList(6),
+  );
 
   return (
     <div className="App">
       <header className="App-header">
-        <Square status="WHITE" onClick={onClick} />
-        <Square status="BLACK" onClick={onClick} />
-        <Square status="NONE" onClick={onClick} />
+        <Board statusesList={statusesList} onClick={handleClick} />
       </header>
     </div>
   );
