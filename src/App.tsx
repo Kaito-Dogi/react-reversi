@@ -4,14 +4,17 @@ import { Board } from './components/Board';
 import { generateInitialStatusesList } from './lib/generateInitialStatusesList';
 import { Status } from './types/Status';
 
-const handleClick = (x: number, y: number) => {
-  console.log(x, y);
-};
-
 const App = () => {
   const [statusesList, _] = useState<Status[][]>(
     generateInitialStatusesList(6),
   );
+  const [isYourTurn, setIsYoutTurn] = useState(true);
+
+  const handleClick = (x: number, y: number) => {
+    setIsYoutTurn((prev) => !prev);
+    console.log(isYourTurn);
+    console.log(x, y);
+  };
 
   return (
     <div className="App">
