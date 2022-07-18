@@ -1,10 +1,11 @@
 /* eslint-disable react/no-array-index-key */
-import { Status } from '../types/Status';
+import { SquarePotision } from '../types/SquarePosition';
+import { SquareStatus } from '../types/SquareStatus';
 import { Square } from './Square';
 
 type Props = {
-  statusesList: Status[][];
-  onClick: (x: number, y: number) => void;
+  statusesList: SquareStatus[][];
+  onClick: (position: SquarePotision) => void;
 };
 
 export const Board = (props: Props) => {
@@ -12,10 +13,10 @@ export const Board = (props: Props) => {
 
   return (
     <div>
-      {statusesList.map((statuses, x) => (
-        <div key={x}>
-          {statuses.map((status, y) => (
-            <Square key={y} status={status} onClick={() => onClick(x, y)} />
+      {statusesList.map((statuses, y) => (
+        <div key={y}>
+          {statuses.map((status, x) => (
+            <Square key={x} status={status} onClick={() => onClick({ y, x })} />
           ))}
         </div>
       ))}

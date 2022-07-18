@@ -1,7 +1,7 @@
-import { Status } from '../types/Status';
+import { SquareStatus } from '../types/SquareStatus';
 
 type Props = {
-  status: Status;
+  status: SquareStatus;
   onClick: () => void;
 };
 
