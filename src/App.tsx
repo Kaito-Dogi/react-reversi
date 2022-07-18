@@ -3,16 +3,16 @@ import './App.css';
 import { Board } from './components/Board';
 import { generateInitialStatusesList } from './lib/generateInitialStatusesList';
 import { isClickable } from './lib/isClickable';
-import { Status } from './types/Status';
+import { SquareStatus } from './types/SquareStatus';
 
 const App = () => {
-  const [statusesList, _] = useState<Status[][]>(
+  const [statusesList, _] = useState<SquareStatus[][]>(
     generateInitialStatusesList(6),
   );
   const [isYourTurn, setIsYoutTurn] = useState(true);
 
   const handleClick = (x: number, y: number) => {
-    if (!isClickable(x, y)) return;
+    if (!isClickable(x, y, statusesList)) return;
 
     setIsYoutTurn((prev) => !prev);
     console.log(isYourTurn);

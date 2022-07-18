@@ -1,1 +1,7 @@
-export const isClickable = (x: number, y: number): boolean => true;
+import { SquareStatus } from '../types/SquareStatus';
+
+export const isClickable = (
+  x: number,
+  y: number,
+  statusesList: SquareStatus[][],
+): boolean => true;

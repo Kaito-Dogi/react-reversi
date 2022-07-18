@@ -1,9 +1,9 @@
 /* eslint-disable react/no-array-index-key */
-import { Status } from '../types/Status';
+import { SquareStatus } from '../types/SquareStatus';
 import { Square } from './Square';
 
 type Props = {
-  statusesList: Status[][];
+  statusesList: SquareStatus[][];
   onClick: (x: number, y: number) => void;
 };
 
