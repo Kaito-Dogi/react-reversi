@@ -3,13 +3,15 @@ import './App.css';
 import { Board } from './components/Board';
 import { generateInitialStatusesList } from './lib/generateInitialStatusesList';
 import { isClickable } from './lib/isClickable';
+import { turnOverSquareStatus } from './lib/turnOverSquareStatus';
 import { SquarePotision } from './types/SquarePosition';
 import { SquareStatus } from './types/SquareStatus';
 
+const initialStatusesList: SquareStatus[][] = generateInitialStatusesList(6);
+
 const App = () => {
-  const [statusesList, _] = useState<SquareStatus[][]>(
-    generateInitialStatusesList(6),
-  );
+  const [statusesList, setStatusesList] =
+    useState<SquareStatus[][]>(initialStatusesList);
   const [isYourTurn, setIsYoutTurn] = useState(true);
 
   const handleClick = (position: SquarePotision) => {
@@ -17,6 +19,7 @@ const App = () => {
     if (!isClickable(position, statusesList)) return;
 
     setIsYoutTurn((prev) => !prev);
+    setStatusesList((prev) => turnOverSquareStatus(position, prev));
     console.log(`Is next your turn ? ${isYourTurn.toString()}`);
   };
 
