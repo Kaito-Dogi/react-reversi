@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import './App.css';
 import { Board } from './components/Board';
-import { generateInitialStatusesList } from './lib/generateInitialStatusesList';
+import { createInitialStatusesList } from './lib/generateInitialStatusesList';
 import { isClickable } from './lib/isClickable';
 import { turnOverSquareStatus } from './lib/turnOverSquareStatus';
 import { SquarePotision } from './types/SquarePosition';
 import { SquareStatus } from './types/SquareStatus';
 
-const initialStatusesList: SquareStatus[][] = generateInitialStatusesList(6);
+const initialStatusesList: SquareStatus[][] = createInitialStatusesList(8);
 
 const App = () => {
   const [statusesList, setStatusesList] =

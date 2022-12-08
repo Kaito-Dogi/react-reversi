@@ -1,8 +1,8 @@
 import { SquareStatus } from '../types/SquareStatus';
 
-const DEFAULT_SIZE = 6;
+const DEFAULT_SIZE = 8;
 
-const generateStatusesList = (n: number): SquareStatus[][] =>
+const createStatusesList = (n: number): SquareStatus[][] =>
   Array<SquareStatus[]>(n)
     .fill(Array<SquareStatus>(n).fill('NONE'))
     .fill(
@@ -22,11 +22,11 @@ const generateStatusesList = (n: number): SquareStatus[][] =>
       n / 2 + 1,
     );
 
-export const generateInitialStatusesList = (n: number): SquareStatus[][] => {
+export const createInitialStatusesList = (n: number): SquareStatus[][] => {
   // nは4以上の偶数でなければならない
   if (n < 4 || n % 2 !== 0) {
-    return generateStatusesList(DEFAULT_SIZE);
+    return createStatusesList(DEFAULT_SIZE);
   }
 
-  return generateStatusesList(n);
+  return createStatusesList(n);
 };
