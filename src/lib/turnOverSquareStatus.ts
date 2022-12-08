@@ -1,7 +1,7 @@
 import { SquarePotision } from '../types/SquarePosition';
 import { SquareStatus } from '../types/SquareStatus';
 
-export const turnOverSquareStatus = (
+export const turnOverSquare = (
   position: SquarePotision,
   statusesList: SquareStatus[][],
 ): SquareStatus[][] => {
